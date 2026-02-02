@@ -34,5 +34,4 @@ The project is designed to demonstrate:
 
 Each alphabetical character is shifted forward or backward by a fixed number of positions.
 
-Example with a shift of 3:
-
+Example with a shift of 3: HELLO -> KHOOR
