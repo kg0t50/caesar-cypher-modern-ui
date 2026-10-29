@@ -25,9 +25,7 @@ import os
 import time
 from functools import partial
 
-# -------------------------
 # App config & utilities
-# -------------------------
 APP_TITLE = "Caesar Cipher — Modern UI"
 WINDOW_SIZE = "820x620"
 DEFAULT_SHIFT = 3
@@ -43,9 +41,7 @@ def clamp(n, smallest, largest):
     return max(smallest, min(n, largest))
 
 
-# -------------------------
 # Caesar logic
-# -------------------------
 def shift_char(ch: str, shift: int) -> str:
     if 'A' <= ch <= 'Z':
         idx = ord(ch) - ord('A')
@@ -68,9 +64,7 @@ def brute_force(text: str) -> str:
     return '\n'.join(lines)
 
 
-# -------------------------
 # UI helpers (animations)
-# -------------------------
 def animate_label_fade(label: ctk.CTkLabel, text: str, duration=350):
     """Simple fade-in style update using after (not true alpha fade but timed visibility)."""
     label.configure(text="")
@@ -87,9 +81,7 @@ def animate_label_fade(label: ctk.CTkLabel, text: str, duration=350):
     step(1)
 
 
-# -------------------------
 # Main Application
-# -------------------------
 class CaesarApp(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -215,10 +207,9 @@ class CaesarApp(ctk.CTk):
         self.hint_label = ctk.CTkLabel(status_frame, text="Tip: Use Run or drag files into Load", font=(self.base_font[0], 10))
         self.hint_label.pack(side="right", padx=8, pady=6)
 
-    # -------------------------
     # Event handlers & actions
     # -------------------------
-    def _bind_shortcuts(self):
+        def _bind_shortcuts(self):
         self.bind("<Control-s>", lambda e: self._save_file())
         self.bind("<Control-o>", lambda e: self._load_file())
         self.bind("<Control-r>", lambda e: self._run())
@@ -321,9 +312,7 @@ class CaesarApp(ctk.CTk):
             messagebox.showerror("Error", f"Failed to save file: {e}")
 
 
-# -------------------------
 # Run the application
-# -------------------------
 if __name__ == "__main__":
     # Ensure customtkinter uses modern look
     ctk.set_appearance_mode("dark")
